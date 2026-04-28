@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная форма - Информационные системы</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #faf5f7; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        header { background: #f5bdc8; color: white; padding: 1rem 0; }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; }
+        nav a:hover, .active { background: #d45a7a; border-radius: 5px; }
+        footer { background: #f5b6c3; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.3rem;
+        }
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        button {
+            background: #e88a9e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        button:hover { background: #d45a7a; }
+        .result {
+            background: #ffe4ec;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        .formula-note {
+            background: #fff0f5;
+            padding: 10px;
+            border-left: 4px solid #e88a9e;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="classification.html">Классификация</a></li>
+                <li><a href="components.html">Компоненты</a></li>
+                <li><a href="form.html" class="active">Интерактив</a></li>
+                <li><a href="about.html">О разработчике</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h1>Оценка эффективности информационной системы</h1>
+    <p>Заполните параметры ИС. На основе формулы будет рассчитан <strong>Индекс производительности</strong> (от 0 до 100).</p>
+    <div class="formula-note">
+        <strong>📐 Формула:</strong> Индекс = (Кол-во пользователей / 100) * (1 + Число выбранных функций / 5) * Коэффициент архитектуры - Время отклика/100<br>
+        где Коэффициент архитектуры: клиент-сервер = 1.2, облачная = 1.5, файл-сервер = 0.8.
+    </div>
+
+    <form id="isForm">
+        <!-- текстовое поле -->
+        <div class="form-group">
+            <label>Название ИС:</label>
+            <input type="text" id="isName" placeholder="Например: CRM-система">
+        </div>
+
+        <!-- выпадающий список (селектор) -->
+        <div class="form-group">
+            <label>Тип ИС:</label>
+            <select id="isType">
+                <option value="ERP">ERP (планирование ресурсов)</option>
+                <option value="CRM">CRM (управление отношениями)</option>
+                <option value="WMS">WMS (складская система)</option>
+                <option value="BI">BI (аналитическая)</option>
+            </select>
+        </div>
+
+        <!-- переключатели (radio) - архитектура -->
+        <div class="form-group">
+            <label>Архитектура:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="arch" value="client-server" checked> Клиент-сервер</label>
+                <label><input type="radio" name="arch" value="cloud"> Облачная</label>
+                <label><input type="radio" name="arch" value="file-server"> Файл-сервер</label>
+            </div>
+        </div>
+
+        <!-- селекторы (checkbox) - функции -->
+        <div class="form-group">
+            <label>Доступные функции (выберите):</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" class="func" value="Учет"> Учет</label>
+                <label><input type="checkbox" class="func" value="Аналитика"> Аналитика</label>
+                <label><input type="checkbox" class="func" value="Управление"> Управление</label>
+                <label><input type="checkbox" class="func" value="Интеграция"> Интеграция</label>
+            </div>
+        </div>
+
+        <!-- числовые поля -->
+        <div class="form-group">
+            <label>Количество пользователей:</label>
+            <input type="number" id="users" value="50" step="1">
+        </div>
+        <div class="form-group">
+            <label>Время отклика (мс):</label>
+            <input type="number" id="responseTime" value="200" step="10">
+        </div>
+
+        <!-- кнопки -->
+        <button type="button" id="calcBtn">Рассчитать индекс эффективности</button>
+        <button type="button" id="clearBtn">Очистить поля</button>
+        <button type="button" id="fillDemoBtn">Заполнить тестовыми данными</button>
+    </form>
+
+    <div id="resultBlock" class="result">
+        <!-- сюда будет выведен результат -->
+    </div>
+
+    <!-- дополнительная кнопка для изменения содержимого (JS) -->
+    <button id="toggleFormulaBtn" style="background:#6c757d;">Показать/скрыть формулу</button>
+    <div id="formulaText" class="formula-note" style="display: none;">Индекс = (Users/100)*(1+funcCount/5)*archCoeff - responseTime/100. Max 100.</div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Информационные системы  ☆ Форма с JavaScript и формулой</p>
+    </div>
+</footer>
+
+<script>
+    // функция расчета
+    function calculateIndex() {
+        const users = parseFloat(document.getElementById('users').value) || 0;
+        const response = parseFloat(document.getElementById('responseTime').value) || 0;
+        // архитектура
+        let archCoeff = 1.2;
+        const archRadios = document.querySelectorAll('input[name="arch"]');
+        for (let radio of archRadios) {
+            if (radio.checked) {
+                if (radio.value === 'cloud') archCoeff = 1.5;
+                else if (radio.value === 'file-server') archCoeff = 0.8;
+                else archCoeff = 1.2;
+                break;
+            }
+        }
+        // количество выбранных функций
+        const checkboxes = document.querySelectorAll('.func:checked');
+        const funcCount = checkboxes.length;
+        
+        // формула
+        let index = (users / 100) * (1 + funcCount / 5) * archCoeff - (response / 100);
+        index = Math.min(100, Math.max(0, index)); // ограничиваем 0-100
+        return { index: index.toFixed(2), users, funcCount, archCoeff, response };
+    }
+
+    function updateResult() {
+        const name = document.getElementById('isName').value || "не названа";
+        const typeSelect = document.getElementById('isType');
+        const type = typeSelect.options[typeSelect.selectedIndex].text;
+        const { index, users, funcCount, archCoeff, response } = calculateIndex();
+        const resultDiv = document.getElementById('resultBlock');
+        resultDiv.innerHTML = `
+            <strong>Результат для ИС "${name}" (${type}):</strong><br>
+            👥 Пользователей: ${users}<br>
+            ⚙ Выбрано функций: ${funcCount}<br>
+            🏗 Коэффициент архитектуры: ${archCoeff}<br>
+            ⏱ Время отклика: ${response} мс<br>
+            🧮 <strong>Индекс производительности: ${index} из 100</strong><br>
+            ${index >= 70 ? '✅ Высокая эффективность' : (index >= 40 ? '⚠ Средняя эффективность' : '❌ Низкая эффективность, требуется оптимизация')}
+        `;
+    }
+
+    function clearForm() {
+        document.getElementById('isName').value = '';
+        document.getElementById('isType').selectedIndex = 0;
+        document.querySelector('input[value="client-server"]').checked = true;
+        document.querySelectorAll('.func').forEach(cb => cb.checked = false);
+        document.getElementById('users').value = 50;
+        document.getElementById('responseTime').value = 200;
+        document.getElementById('resultBlock').innerHTML = 'Очищено. Нажмите "Рассчитать".';
+    }
+
+    function fillDemo() {
+        document.getElementById('isName').value = 'Демо-ERP';
+        document.getElementById('isType').value = 'ERP';
+        document.querySelector('input[value="cloud"]').checked = true;
+        document.querySelectorAll('.func').forEach(cb => cb.checked = false);
+        document.querySelector('.func[value="Учет"]').checked = true;
+        document.querySelector('.func[value="Аналитика"]').checked = true;
+        document.getElementById('users').value = 250;
+        document.getElementById('responseTime').value = 120;
+        updateResult(); // сразу покажем результат
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', updateResult);
+    document.getElementById('clearBtn').addEventListener('click', clearForm);
+    document.getElementById('fillDemoBtn').addEventListener('click', fillDemo);
+    
+    // дополнительный JS - кнопка показа/скрытия формулы
+    const toggleFormula = document.getElementById('toggleFormulaBtn');
+    const formulaDiv = document.getElementById('formulaText');
+    toggleFormula.addEventListener('click', () => {
+        if (formulaDiv.style.display === 'none') {
+            formulaDiv.style.display = 'block';
+        } else {
+            formulaDiv.style.display = 'none';
+        }
+    });
+    formulaDiv.style.display = 'none';
+</script>
+</body>
+</html>

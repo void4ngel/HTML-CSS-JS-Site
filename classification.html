@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Классификация информационных систем</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff0f5; color: #7a4b5c; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: #f1b4c1; color: white; padding: 1rem 0; }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; transition: 0.3s; }
+        nav a:hover, .active { background: #d45a7a; border-radius: 5px; }
+        footer { background: #f3b8c5; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        h1, h2 { margin: 1rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background: #e88a9e;
+            color: white;
+        }
+        tr:nth-child(even) { background: #fff0f5; }
+        .grid-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .info-block {
+            background: white;
+            padding: 1rem;
+            border-left: 5px solid #e88a9e;
+            border-radius: 5px;
+        }
+        ul, ol { margin-left: 2rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="classification.html" class="active">Классификация</a></li>
+                <li><a href="components.html">Компоненты</a></li>
+                <li><a href="form.html">Интерактив</a></li>
+                <li><a href="about.html">О разработчике</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h1>Классификация информационных систем</h1>
+    <p>Информационные системы классифицируют по различным признакам: масштаб, назначение, структура, степень автоматизации.</p>
+
+    <!-- табличная сетка (основная таблица) -->
+    <h2>Таблица классификации ИС</h2>
+    <table>
+        <thead>
+            <tr><th>Признак классификации</th><th>Тип ИС</th><th>Примеры</th><th>Характеристика</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>По масштабу</td><td>Одиночные (Desktop)</td><td>1С:Бухгалтерия</td><td>Работа на одном компьютере</td></tr>
+            <tr><td>По масштабу</td><td>Групповые</td><td>Корпоративный портал</td><td>Локальная сеть отдела</td></tr>
+            <tr><td>По масштабу</td><td>Корпоративные</td><td>SAP ERP</td><td>Вся организация, филиалы</td></tr>
+            <tr><td>По назначению</td><td>Транзакционные</td><td>Система онлайн-заказов</td><td>Регистрация событий</td></tr>
+            <tr><td>По назначению</td><td>Аналитические</td><td>BI-системы (Power BI)</td><td>Анализ данных, отчёты</td></tr>
+            <tr><td>По структуре</td><td>Файл-серверные</td><td>Старые учётные системы</td><td>Данные на файловом сервере</td></tr>
+            <tr><td>По структуре</td><td>Клиент-серверные</td><td>Большинство современных ИС</td><td>Сервер БД + клиентские приложения</td></tr>
+        </tbody>
+    </table>
+
+    <!-- списки -->
+    <h2>Основные классификационные признаки</h2>
+    <ul>
+        <li><strong>По функциональности:</strong> производственные, финансовые, маркетинговые, кадровые.</li>
+        <li><strong>По уровню управления:</strong> операционный, тактический, стратегический.</li>
+        <li><strong>По степени открытости:</strong> замкнутые, открытые (с возможностью интеграции).</li>
+    </ul>
+
+    <!-- блочная сетка (доп блоки) -->
+    <h2>Примеры ИС по отраслям</h2>
+    <div class="grid-blocks">
+        <div class="info-block"><strong>Розничная торговля:</strong> ERP-системы, кассовые решения, WMS.</div>
+        <div class="info-block"><strong>Здравоохранение:</strong> МИС (медицинские информ. системы), телемедицина.</div>
+        <div class="info-block"><strong>Логистика:</strong> TMS, системы мониторинга транспорта.</div>
+        <div class="info-block"><strong>Госсектор:</strong> Электронное правительство, порталы госуслуг.</div>
+    </div>
+
+    <!-- графическая ссылка -->
+    <div style="margin: 2rem 0;">
+        <a href="components.html">
+            <img src="next.png" alt="Перейти к компонентам" style="border-radius: 8px;">
+            <p>Текстовая ссылка: Посмотреть компоненты ИС</p>
+        </a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Информационные системы  ☆ Пример табличной и блочной сетки</p>
+    </div>
+</footer>
+</body>
+</html>

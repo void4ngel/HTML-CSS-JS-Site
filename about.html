@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О разработчике - Информационные системы</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff1f6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        header { background: #e88a9e; color: white; padding: 1rem 0; }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; }
+        nav a:hover, .active { background: #d45a7a; border-radius: 5px; }
+        footer { background: #e88a9e; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        .developer-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .avatar {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        .links a {
+            display: inline-block;
+            margin: 0 15px;
+            text-decoration: none;
+            color: #e88a9e;
+            font-weight: bold;
+        }
+        .links img {
+            width: 40px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        .text-link {
+            margin-top: 20px;
+        }
+        hr { margin: 20px 0; }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="classification.html">Классификация</a></li>
+                <li><a href="components.html">Компоненты</a></li>
+                <li><a href="form.html">Интерактив</a></li>
+                <li><a href="about.html" class="active">О разработчике</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="developer-card">
+        <img src="cat.jpg" alt="Фото разработчика" class="avatar">
+        <h1>Савченко Алиса</h1>
+        <p>Студентка направления "Информатика и вычислительная техника".</p>
+        <p>₍^. .^₎⟆</p>
+        <hr>
+        <h3>Контакты и ссылки на разработчика</h3>
+        <div class="links">
+            <!-- графические ссылки -->
+            <a href="alisa@example.com">
+                <img src="mail.png" alt="Email"> Email
+            </a>
+        </div>
+        <div class="text-link">
+            <p>Текстовые ссылки:</p>
+            <a href="index.html">Вернуться на главную</a> |
+            <a href="form.html">Интерактивная форма</a>
+        </div>
+        <hr>
+        <p>Данный сайт выполнен в рамках учебного задания по дисциплине "Проектирование информационных систем".</p>
+        <p><small>Все изображения взяты из открытых источников.</small></p>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Алиса Савченко  ☆ Сайт об информационных системах</p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компоненты информационных систем</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff0f5; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: #e4a9b6; color: white; padding: 1rem 0; }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; }
+        nav a:hover, .active { background: #eba7b9; border-radius: 5px; }
+        footer { background: #e88a9e; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        .grid-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .img-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .img-card img { width: 100%; height: 180px; object-fit: contain; border-radius: 8px;     box-sizing: border-box; }
+        .media-box { background: white; padding: 1rem; margin: 1.5rem 0; border-radius: 8px; }
+        video, audio { width: 100%; max-width: 600px; margin: 10px 0; }
+        iframe { width: 100%; max-width: 560px; height: 315px; border: 0; }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="classification.html">Классификация</a></li>
+                <li><a href="components.html" class="active">Компоненты</a></li>
+                <li><a href="form.html">Интерактив</a></li>
+                <li><a href="about.html">О разработчике</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h1>Основные компоненты информационных систем</h1>
+    <p>Любая ИС состоит из взаимосвязанных частей: аппаратное обеспечение, программное обеспечение, данные, сеть и персонал.</p>
+
+    <!-- блочная сетка с графическими объектами -->
+    <div class="grid-images">
+        <div class="img-card">
+            <img src="computer.png" alt="Аппаратное обеспечение">
+            <h3>Аппаратное обеспечение</h3>
+            <p>Серверы, ПК, сетевое оборудование.</p>
+     </div>
+        <div class="img-card">
+            <img src="web-programming.png" alt="Программное обеспечение">
+            <h3>Программное обеспечение</h3>
+            <p>ОС, СУБД, прикладные программы.</p>
+        </div>
+        <div class="img-card">
+            <img src="database.png" alt="Данные">
+            <h3>Данные</h3>
+            <p>Базы данных, хранилища, файлы.</p>
+        </div>
+    </div>
+
+    <!-- вставка видео -->
+    <div class="media-box">
+        <h2>Видео: Что такое информационные системы?</h2>
+        <iframe src="infosystem.mp4" title="Введение в ИС" allowfullscreen></iframe>
+        <p><a href="infosystem.mp4" target="_blank">Текстовая ссылка на видео</a></p>
+    </div>
+
+    <!-- вставка аудио -->
+    <div class="media-box">
+        <h2>Лекция "Информационные системы и технологии"</h2>
+        <audio controls>
+            <source src="lecture.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает аудио.
+        </audio>
+    </div>
+
+    <!-- текстовые и графические ссылки -->
+    <div style="margin: 2rem 0;">
+        <a href="form.html"><img src="next.png" alt="Перейти к форме" style="border-radius: 5px;"></a>
+        <a href="classification.html">Таблица классификации ИС</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Информационные системы  ☆ Графика, видео, аудио</p>
+    </div>
+</footer>
+</body>
+</html>
